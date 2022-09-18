@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "globo-api",
+    "slug": "globo-api",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
