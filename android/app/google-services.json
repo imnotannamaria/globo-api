@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "494193074593",
+    "project_id": "apiglobo-be541",
+    "storage_bucket": "apiglobo-be541.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494193074593:android:71e74f6d99c04683282be0",
+        "android_client_info": {
+          "package_name": "com.globoapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494193074593-jh7mfqge73usj9vmic5kepjl5rvcc30u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.globoapi",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "494193074593-bbqbmlsqpu7g2iu5iana8m8kaipobblc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH1O7CRZIEcV6RcWFV1vw98_WE3dO_yIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494193074593-bbqbmlsqpu7g2iu5iana8m8kaipobblc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
