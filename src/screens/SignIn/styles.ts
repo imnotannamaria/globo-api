@@ -1,10 +1,11 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 export const SignInContainer = styled.View`
   flex: 1;
   width: 100%;
   align-items: center;
   justify-content: center;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const ImageContainer = styled.View`
@@ -20,9 +21,8 @@ export const Image = styled.Image`
 
 export const TextHeading = styled.Text`
   font-size: 23px;
-  color: #9080ED;
+  color: ${({ theme }) => theme.colors.main};
   font-weight: bold;
-  font-family: "RobotoSlab-Medium";
   margin: 64px 0 50px;
 `;
 
@@ -38,6 +38,6 @@ export const ForgotPasswordButton = styled.TouchableOpacity`
 `;
 
 export const ForgotPasswordButtonText = styled.Text`
-  color: #737078;
+  color: ${({ theme }) => theme.colors.text};
   font-size: 16px;
 `;

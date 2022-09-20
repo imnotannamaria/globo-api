@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Alert } from "react-native";
+import React, { useState } from 'react';
+import { Alert, StatusBar } from 'react-native';
 
 import auth from '@react-native-firebase/auth';
 
 import signInImage from '../../assets/signInImage.png';
 
-import { Button } from "../../components/Button";
-import { Input } from "../../components/Input";
+import { Button } from '../../components/Button';
+import { Input } from '../../components/Input';
 
 import { 
   ButtonContainer, 
@@ -16,14 +16,13 @@ import {
   Image,
   SignInContainer, 
   TextHeading 
-} from "./styles";
+} from './styles';
 
 export function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleCreateUserAccount() {
-    console.log(email, password)
     auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => Alert.alert('Usuário criado com sucesso!'))
@@ -43,16 +42,15 @@ export function SignIn() {
   }
 
   function handleSignInWithEmailAndPassword() {
-    console.log(email, password)
     auth()
-    .signInWithEmailAndPassword(email, password)
-    .then(({ user }) => console.log(user))
-    .catch(error => {
-      console.log(error)
-      if(error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-        return Alert.alert('Usuário não encontrado! \nE-mail e/ou senha inválida');
-      }
-    })
+      .signInWithEmailAndPassword(email, password)
+      .then(() => Alert.alert('Não foi possível fazer o login'))
+      .catch(error => {
+        console.log(error)
+        if(error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+          return Alert.alert('Usuário não encontrado! \nE-mail e/ou senha inválida');
+        }
+      })
   }
 
   function handleForgotPassword() {
@@ -63,6 +61,11 @@ export function SignIn() {
   
   return (
     <SignInContainer>
+      <StatusBar 
+        barStyle='light-content'
+        backgroundColor='transparent'
+        translucent
+      />
       <ImageContainer>
         <Image source={signInImage} />
       </ImageContainer>
@@ -72,22 +75,22 @@ export function SignIn() {
       </TextHeading>
 
       <Input 
-        placeholder="E-mail"
+        placeholder='E-mail'
         onChangeText={setEmail}
       />
       <Input 
-        placeholder="Senha"
+        placeholder='Senha'
         secureTextEntry
         onChangeText={setPassword}
       />
 
       <ButtonContainer>
         <Button 
-          title="Entrar"
+          title='Entrar'
           onPress={handleSignInWithEmailAndPassword}
         />
         <Button 
-          title="Cadastre-se"
+          title='Cadastre-se'
           onPress={handleCreateUserAccount}
         />
       </ButtonContainer>
