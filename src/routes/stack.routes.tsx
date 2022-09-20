@@ -1,8 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
 
+import { NavigationContainer } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 
-import React, { useEffect, useState } from 'react';
 import { Home } from '../screens/Home';
 import { SignIn } from '../screens/SignIn';
 
@@ -15,7 +15,6 @@ export function Routes() {
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(userInfo => {
-      console.log(userInfo)
       setUser(userInfo)
     })
 

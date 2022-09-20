@@ -4,5 +4,6 @@ export default {
     text: '#EBEBF0',
     main: '#9080ED',
     darkMain: '#261447',
+    danger: '#FE5F55',
   }
 }

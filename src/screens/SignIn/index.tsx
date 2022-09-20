@@ -44,7 +44,7 @@ export function SignIn() {
   function handleSignInWithEmailAndPassword() {
     auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => Alert.alert('Não foi possível fazer o login'))
+      .then()
       .catch(error => {
         console.log(error)
         if(error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
