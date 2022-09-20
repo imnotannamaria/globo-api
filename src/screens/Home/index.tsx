@@ -17,8 +17,6 @@ import { LogoutButton } from '../../components/LogoutButton';
 import { Load } from '../../components/Load';
 import { ProgramDTO } from '../../DTOS/ProgramDTO';
 
-
-
 export function Home() {
   const [program, setProgram] = useState<ProgramDTO[]>([]);
   const [loading, setLoading] = useState(true);
