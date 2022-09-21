@@ -66,7 +66,7 @@ function Calendar({ markedDates, onDayPress } : CalendarProps) {
     
       minDate={date}
 
-      markingType="dot"
+      markingType='dot'
       markedDates={markedDates}
       onDayPress={onDayPress}
     /> 

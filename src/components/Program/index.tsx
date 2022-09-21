@@ -31,7 +31,7 @@ export function Program({ data, isNowProgram=false, ...rest } : ProgramProps) {
     <ProgramContainer {...rest}>
       <ProgramImage
         source={{ uri : data.custom_info.Graficos.ImagemURL ?  data.custom_info.Graficos.ImagemURL : 'https://via.placeholder.com/640x360.png?text=Program+Image'}}
-        resizeMode="contain"
+        resizeMode='contain'
       />
       <ProgromContent>
         <ProgramTitle>

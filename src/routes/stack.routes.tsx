@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Calendar } from '../components/Calendar';
 
 import { Home } from '../screens/Home';
 import { ProgramDetails } from '../screens/ProgramDetails';

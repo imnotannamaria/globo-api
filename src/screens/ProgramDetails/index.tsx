@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 
 import auth from '@react-native-firebase/auth';
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { SquareButton } from '../../components/SquareButton';
 import { ProgramDTO } from '../../DTOS/ProgramDTO';
@@ -54,7 +54,7 @@ export function ProgramDetails() {
       <ProgramDetailsContent>
         <ProgramDetailsImage
           source={{ uri : program.custom_info.Graficos.ImagemURL ?  program.custom_info.Graficos.ImagemURL : 'https://via.placeholder.com/640x360.png?text=Program+Image'}}
-          resizeMode="cover"
+          resizeMode='cover'
         />
 
         <DateProgramContainer>

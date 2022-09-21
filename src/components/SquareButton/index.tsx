@@ -18,13 +18,13 @@ export function SquareButton({ onPress, isLogout = true } : SquareButtonProps) {
     <LogoutButtonContainer onPress={onPress}>
       {isLogout ? (
         <FontAwesome5 
-          name="sign-out-alt" 
+          name='sign-out-alt' 
           size={25} 
           color={theme.colors.danger} 
         />
       ) : (
         <FontAwesome5 
-          name="arrow-left" 
+          name='arrow-left' 
           size={20} 
           color={theme.colors.text} 
         />
