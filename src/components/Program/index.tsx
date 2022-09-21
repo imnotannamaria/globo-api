@@ -1,3 +1,4 @@
+import React from 'react';
 import { TouchableOpacityProps } from 'react-native';
 
 import { ProgramDTO } from '../../DTOS/ProgramDTO';
@@ -10,18 +11,21 @@ import {
   ProgramTitle,
   DateProgramContainer,
   DateProgramText,
+  ProgramNowTitle,
 } from './styles';
 
 interface ProgramProps extends TouchableOpacityProps{
   data: ProgramDTO;
+  isNowProgram?: boolean;
 }
 
-export function Program({ data, ...rest } : ProgramProps) {
+export function Program({ data, isNowProgram=false, ...rest } : ProgramProps) {
   let starTime = data.human_start_time.toString();
   let endTime = data.human_end_time.toString();
 
   const startFormattedTime = formatStartAndEndTime(starTime);
   const EndFormattedTime = formatStartAndEndTime(endTime);
+
 
   return (
     <ProgramContainer {...rest}>
@@ -33,6 +37,14 @@ export function Program({ data, ...rest } : ProgramProps) {
         <ProgramTitle>
           {data.title ? data.title : data.program.name} 
         </ProgramTitle>
+
+        {
+          isNowProgram ?
+            <ProgramNowTitle>
+              Passando agora
+            </ProgramNowTitle>  
+          : null
+        }
 
         <DateProgramContainer>
           <DateProgramText>

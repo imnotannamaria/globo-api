@@ -23,6 +23,13 @@ export const ProgramTitle = styled.Text`
   margin-top: 10px;
 `
 
+export const ProgramNowTitle = styled.Text`
+  color: ${({ theme }) => theme.colors.darkMain};
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 10px;
+`
+
 export const DateProgramContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;

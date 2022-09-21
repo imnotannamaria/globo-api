@@ -30,12 +30,9 @@ export function ProgramDetails() {
   function handleGoBackRedirect() {
     navigation.goBack();
   }
-
-  let starTime = program.human_start_time.toString();
-  let endTime = program.human_end_time.toString();
-
-  const startFormattedTime = formatStartAndEndTime(starTime);
-  const EndFormattedTime = formatStartAndEndTime(endTime);
+  
+  var startFormattedTime = formatStartAndEndTime(program.human_start_time.toString());
+  var EndFormattedTime = formatStartAndEndTime(program.human_end_time.toString());
 
   return (
     <ProgramDetailsContainer>

@@ -19,13 +19,9 @@ import { Load } from '../../components/Load';
 import { ProgramDTO } from '../../DTOS/ProgramDTO';
 import { useNavigation, CommonActions, useRoute } from '@react-navigation/native';
 import { format } from 'date-fns';
-import { Button } from '../../components/Button';
 import { Calendar, DateData } from 'react-native-calendars';
 import { useTheme } from 'styled-components/native';
 
-interface HomeParams {
-  markedDate?: string;
-}
 
 export function Home() {
   const theme = useTheme();
@@ -54,7 +50,7 @@ export function Home() {
         setProgram(response.data.programme.entries);
       } catch (error) {
         console.log(error);
-        Alert.alert('Não foi possível carregar os programas');	
+        Alert.alert('Não há programação disponível para essa data');	
       }finally{
         setLoading(false);
       }
