@@ -54,9 +54,15 @@ export function SignIn() {
   }
 
   function handleForgotPassword() {
+    if(!email) {
+      return Alert.alert('Preencha o campo de email para redefinir sua senha!');
+    }
     auth()
     .sendPasswordResetEmail(email)
     .then(() => Alert.alert('Enviamos um link no seu email para redefinir sua senha!'))
+    .catch(error => {
+      return Alert.alert('Não foi possível redefinir sua senha! \nTente novamente mais tarde!');
+    })
   }
   
   return (
