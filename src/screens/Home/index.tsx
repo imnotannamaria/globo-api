@@ -13,11 +13,14 @@ import {
 } from './styles';
 
 import { Program } from '../../components/Program';
-import { LogoutButton } from '../../components/LogoutButton';
+import { SquareButton } from '../../components/SquareButton';
 import { Load } from '../../components/Load';
 import { ProgramDTO } from '../../DTOS/ProgramDTO';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 
 export function Home() {
+  const navigation = useNavigation();
+
   const [program, setProgram] = useState<ProgramDTO[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -45,6 +48,17 @@ export function Home() {
     auth().signOut();
   }
 
+  function handleProgramDetailsRedirect(program: ProgramDTO) {
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: 'ProgramDetails', 
+        params: {
+          program
+        }
+      })
+    )
+  }
+
   return (
     <HomeContainer>
       <StatusBar 
@@ -55,7 +69,7 @@ export function Home() {
 
       <HomeHeader>
         <HomeTitle>Home</HomeTitle>
-        <LogoutButton
+        <SquareButton
           onPress={handleLogout}
         />
       </HomeHeader>
@@ -65,7 +79,7 @@ export function Home() {
           data={program}
           keyExtractor={() => uuid.v4().toString()}
           renderItem={({ item }) => (
-            <Program data={item}/>
+            <Program data={item} onPress={() => handleProgramDetailsRedirect(item)}/>
           )}
         />
       }

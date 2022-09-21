@@ -1,29 +1,21 @@
-import React, { useEffect, useState } from 'react';
-
-import { NavigationContainer } from '@react-navigation/native';
-import auth from '@react-native-firebase/auth';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Home } from '../screens/Home';
-import { SignIn } from '../screens/SignIn';
+import { ProgramDetails } from '../screens/ProgramDetails';
 
-interface User {
-  uid: string;
-}
+const { Navigator, Screen } = createNativeStackNavigator();
 
-export function Routes() {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(userInfo => {
-      setUser(userInfo)
-    })
-
-    return subscriber;
-  }, [])
-  
+export function StackRoutes() {
   return (
-    <NavigationContainer>
-      { user ? <Home /> : <SignIn/> }
-    </NavigationContainer>
+    <Navigator screenOptions={{ headerShown: false }}>
+      <Screen
+        name='Home'
+        component={Home}
+      />
+      <Screen
+        name='ProgramDetails'
+        component={ProgramDetails}
+      />
+    </Navigator>
   )
 }
