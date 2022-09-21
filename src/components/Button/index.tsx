@@ -5,11 +5,12 @@ import { ButtonCointainer, ButtonText } from './styles';
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
+  onPress: () => void;
 }
 
-export function Button({ title, ...rest }: ButtonProps) {
+export function Button({ title, onPress }: ButtonProps) {
   return (
-    <ButtonCointainer {...rest}>
+    <ButtonCointainer onPress={onPress}>
       <ButtonText>
         { title }
       </ButtonText>

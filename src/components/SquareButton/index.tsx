@@ -7,7 +7,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 
 interface SquareButtonProps extends TouchableOpacityProps {
-  isLogout: boolean;
+  isLogout?: boolean;
   onPress: () => void;
 }
 

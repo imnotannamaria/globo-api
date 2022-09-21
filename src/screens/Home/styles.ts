@@ -18,7 +18,7 @@ export const HomeHeader = styled.View`
 
 export const HomeTitle = styled.Text`
   color: ${({ theme }) => theme.colors.text};
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 `
 
@@ -28,3 +28,7 @@ export const ProgramList = styled(FlatList).attrs({
   },
   showsVerticalScrollIndicator: false
 })`` as React.ComponentType as new <ProgramDTO>() => FlatList<ProgramDTO>;
+
+export const HomeFooter = styled.View`
+  width: 100%;
+`

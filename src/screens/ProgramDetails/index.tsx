@@ -65,7 +65,7 @@ export function ProgramDetails() {
             Inicía as {startFormattedTime}h
           </DateProgramText>
           <DateProgramText>
-            Termina das {EndFormattedTime}h
+            Termina as {EndFormattedTime}h
           </DateProgramText>
         </DateProgramContainer>
 

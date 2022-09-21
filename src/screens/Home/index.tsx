@@ -9,20 +9,38 @@ import {
   HomeContainer, 
   HomeTitle, 
   HomeHeader, 
-  ProgramList 
+  ProgramList,
+  HomeFooter
 } from './styles';
 
 import { Program } from '../../components/Program';
 import { SquareButton } from '../../components/SquareButton';
 import { Load } from '../../components/Load';
 import { ProgramDTO } from '../../DTOS/ProgramDTO';
-import { useNavigation, CommonActions } from '@react-navigation/native';
+import { useNavigation, CommonActions, useRoute } from '@react-navigation/native';
+import { format } from 'date-fns';
+import { Button } from '../../components/Button';
+import { Calendar, DateData } from 'react-native-calendars';
+import { useTheme } from 'styled-components/native';
+
+interface HomeParams {
+  markedDate?: string;
+}
 
 export function Home() {
+  const theme = useTheme();
+
   const navigation = useNavigation();
 
   const [program, setProgram] = useState<ProgramDTO[]>([]);
   const [loading, setLoading] = useState(true);
+  const [calendarDate, setCalendarDate] = useState('');
+
+  var TodayDate = format(new Date(), 'yyyy-MM-dd')
+
+  const SelectedDate = calendarDate ? calendarDate : TodayDate;
+
+  const SelectedFormatedDate = format(new Date(SelectedDate), 'dd/MM/yyyy');
 
   const api = axios.create({
     baseURL: 'https://epg-api.video.globo.com/programmes/1337',
@@ -30,8 +48,9 @@ export function Home() {
 
   useEffect(() => {
     async function fetchPrograms() {
+      //2022-09-20
       try {
-        const response = await api.get('', { params: { date: '2022-09-20' } });
+        const response = await api.get('', { params: { date: SelectedDate } });
         setProgram(response.data.programme.entries);
       } catch (error) {
         console.log(error);
@@ -42,7 +61,7 @@ export function Home() {
     }
 
     fetchPrograms();
-  }, [])
+  }, [SelectedDate])
 
   function handleLogout() {
     auth().signOut();
@@ -68,7 +87,7 @@ export function Home() {
       />
 
       <HomeHeader>
-        <HomeTitle>Home</HomeTitle>
+        <HomeTitle>Programação dia {SelectedFormatedDate}</HomeTitle>
         <SquareButton
           onPress={handleLogout}
         />
@@ -83,7 +102,20 @@ export function Home() {
           )}
         />
       }
-      
+
+      <HomeFooter>
+        <Calendar
+          markedDates={{
+            [SelectedDate]: {
+              selected: true,
+              selectedColor: theme.colors.main
+            }
+          }}
+          onDayPress={(day) => {
+            setCalendarDate(day.dateString)
+          }}
+        />
+      </HomeFooter>
     </HomeContainer>
   );
 }
