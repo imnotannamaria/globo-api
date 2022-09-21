@@ -32,4 +32,4 @@ https://react-native.rocketseat.dev/virtual-devices/android-emulator
 
 ## 🚀 Deploy
 - Instalar dependências com `yarn` ou 
-- Iniciar `yarn android` a
+- Iniciar `yarn android`

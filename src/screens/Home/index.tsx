@@ -4,6 +4,10 @@ import { Alert, StatusBar } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import uuid from 'react-native-uuid';
 import axios from 'axios';
+import { format } from 'date-fns';
+import { Calendar } from 'react-native-calendars';
+import { useTheme } from 'styled-components/native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 
 import { 
   HomeContainer, 
@@ -17,11 +21,6 @@ import { Program } from '../../components/Program';
 import { SquareButton } from '../../components/SquareButton';
 import { Load } from '../../components/Load';
 import { ProgramDTO } from '../../DTOS/ProgramDTO';
-import { useNavigation, CommonActions, useRoute } from '@react-navigation/native';
-import { format } from 'date-fns';
-import { Calendar, DateData } from 'react-native-calendars';
-import { useTheme } from 'styled-components/native';
-
 
 export function Home() {
   const theme = useTheme();
@@ -44,7 +43,6 @@ export function Home() {
 
   useEffect(() => {
     async function fetchPrograms() {
-      //2022-09-20
       try {
         const response = await api.get('', { params: { date: SelectedDate } });
         setProgram(response.data.programme.entries);

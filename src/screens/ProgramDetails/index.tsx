@@ -1,10 +1,8 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 
-import auth from '@react-native-firebase/auth';
 import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { SquareButton } from '../../components/SquareButton';
 import { ProgramDTO } from '../../DTOS/ProgramDTO';
 import { 
   ProgramDetailsContainer, 
@@ -17,6 +15,9 @@ import {
   DateProgramText,
   ProgramDetailsInfo,
 } from './styles';
+
+import { SquareButton } from '../../components/SquareButton';
+
 import { formatStartAndEndTime } from '../../utils/formatStartAndEndTime';
 
 interface ProgramDetailsParams {

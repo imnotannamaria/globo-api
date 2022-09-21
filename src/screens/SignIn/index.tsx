@@ -89,8 +89,9 @@ export function SignIn() {
           title='Entrar'
           onPress={handleSignInWithEmailAndPassword}
         />
+
         <Button 
-          title='Cadastre-se'
+          title='Cadastrar-se'
           onPress={handleCreateUserAccount}
         />
       </ButtonContainer>

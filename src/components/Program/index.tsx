@@ -19,18 +19,29 @@ interface ProgramProps extends TouchableOpacityProps{
   isNowProgram?: boolean;
 }
 
-export function Program({ data, isNowProgram=false, ...rest } : ProgramProps) {
-  let starTime = data.human_start_time.toString();
-  let endTime = data.human_end_time.toString();
+export function Program({ 
+  data, 
+  isNowProgram = false, 
+  ...rest 
+} : ProgramProps) {
+  
+  var starTime = data.human_start_time.toString();
+  var endTime = data.human_end_time.toString();
 
-  const startFormattedTime = formatStartAndEndTime(starTime);
-  const EndFormattedTime = formatStartAndEndTime(endTime);
-
+  var startFormattedTime = formatStartAndEndTime(starTime);
+  var EndFormattedTime = formatStartAndEndTime(endTime);
 
   return (
     <ProgramContainer {...rest}>
       <ProgramImage
-        source={{ uri : data.custom_info.Graficos.ImagemURL ?  data.custom_info.Graficos.ImagemURL : 'https://via.placeholder.com/640x360.png?text=Program+Image'}}
+        source={
+          { uri : 
+              data.custom_info.Graficos.ImagemURL 
+            ?  
+              data.custom_info.Graficos.ImagemURL 
+            : 
+              'https://via.placeholder.com/640x360.png?text=Program+Image'
+          }}
         resizeMode='contain'
       />
       <ProgromContent>
